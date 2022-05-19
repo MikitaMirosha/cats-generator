@@ -1,8 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CatsGeneratorActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/nested_scrollview_margin_bottom"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            tools:context=".view.CatsGeneratorActivity">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/toolbar_layout_height">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/content_description_back_arrow"
+                            android:src="@drawable/ic_back_arrow" />
+
+                        <TextView
+                            style="@style/ToolbarTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/toolbar_text_layout_height"
+                            android:layout_marginStart="@dimen/toolbar_text_margin_start"
+                            android:text="@string/toolbar_text" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.Toolbar>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/image_cat_height"
+                    android:layout_marginVertical="@dimen/image_cat_margin_vertical"
+                    android:contentDescription="@string/content_description_cat_image"
+                    android:src="@drawable/img_cat" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/text_input_layout_height"
+                    android:layout_marginHorizontal="@dimen/activity_margin_horizontal"
+                    android:layout_marginTop="@dimen/text_input_layout_margin_top"
+                    android:layout_marginBottom="@dimen/text_input_layout_margin_bottom">
+
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_tag"
+                        android:inputType="none"
+                        android:textColorHint="@color/teal_200" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/text_input_layout_height"
+                    android:layout_marginHorizontal="@dimen/activity_margin_horizontal"
+                    android:layout_marginTop="@dimen/text_input_layout_margin_top"
+                    android:layout_marginBottom="@dimen/text_input_layout_margin_bottom">
+
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_filter"
+                        android:inputType="none"
+                        android:textColorHint="@color/teal_200" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/checkbox_margin_horizontal"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/checkbox_text_margin_start"
+                        android:text="@string/checkbox_text"
+                        android:textSize="@dimen/checkbox_text_size" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/hidden_layout_margin_top"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/text_input_layout_height"
+                        android:layout_marginHorizontal="@dimen/activity_margin_horizontal"
+                        android:hint="@string/hint_opis">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/activity_margin_horizontal"
+                        android:layout_marginTop="@dimen/slider_margin_top"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/slider_min_value"
+                            android:textSize="@dimen/slider_text_size" />
+
+                        <androidx.appcompat.widget.AppCompatSeekBar
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:max="60"
+                            android:thumb="@drawable/ic_slider" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/slider_max_value"
+                            android:textSize="@dimen/slider_text_size" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/text_input_layout_height"
+                        android:layout_marginHorizontal="@dimen/activity_margin_horizontal"
+                        android:layout_marginTop="@dimen/text_input_layout_margin_top"
+                        android:layout_marginBottom="@dimen/text_input_layout_margin_bottom">
+
+                        <AutoCompleteTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/hint_color"
+                            android:inputType="none"
+                            android:textColorHint="@color/teal_200" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="@dimen/activity_margin_horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/button_text"
+                android:textSize="@dimen/button_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- CatsGenerator Activity -->
+    <dimen name="activity_margin_horizontal">16dp</dimen>
+    <dimen name="nested_scrollview_margin_bottom">64dp</dimen>
+
+    <dimen name="toolbar_text_layout_height">24dp</dimen>
+    <dimen name="toolbar_text_margin_start">32dp</dimen>
+    <dimen name="toolbar_layout_height">56dp</dimen>
+    <dimen name="toolbar_text_line_spacing_extra">4sp</dimen>
+    <dimen name="toolbar_text_size">20sp</dimen>
+
+    <dimen name="image_cat_margin_vertical">24dp</dimen>
+    <dimen name="image_cat_height">216dp</dimen>
+
+    <dimen name="text_input_layout_margin_top">16dp</dimen>
+    <dimen name="text_input_layout_margin_bottom">20dp</dimen>
+    <dimen name="text_input_layout_height">56dp</dimen>
+
+    <dimen name="checkbox_margin_horizontal">4dp</dimen>
+    <dimen name="checkbox_text_margin_start">4dp</dimen>
+    <dimen name="checkbox_text_size">16sp</dimen>
+
+    <dimen name="hidden_layout_margin_top">24dp</dimen>
+
+    <dimen name="slider_margin_top">20dp</dimen>
+    <dimen name="slider_text_size">16sp</dimen>
+
+    <dimen name="button_text_size">14sp</dimen>
+    
+</resources>

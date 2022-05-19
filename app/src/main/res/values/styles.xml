@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="ToolbarTextStyle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/toolbar_text_size</item>
+        <item name="colorOnPrimary">?attr/colorOnPrimary</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:navigationIcon">@drawable/ic_back_arrow</item>
+        <item name="android:lineSpacingExtra">@dimen/toolbar_text_line_spacing_extra</item>
+    </style>
+
+</resources>

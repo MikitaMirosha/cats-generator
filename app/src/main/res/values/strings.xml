@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">CatsGenerator</string>
+
+    <string name="app_name">Cats Generator</string>
+
+    <!-- CatsGenerator Activity -->
+    <string name="toolbar_text">Generator kotów</string>
+
+    <string name="content_description_back_arrow">Back arrow</string>
+    <string name="content_description_cat_image">Cat</string>
+
+    <string name="hint_tag">Wybierz tag</string>
+    <string name="hint_filter">Wybierz filtr</string>
+    <string name="hint_opis">Opis</string>
+    <string name="hint_color">Kolor</string>
+
+    <string name="checkbox_text">Dodaj tekst</string>
+
+    <string name="slider_min_value">0</string>
+    <string name="slider_max_value">60</string>
+
+    <string name="button_text">Daj mi kota</string>
+
 </resources>
