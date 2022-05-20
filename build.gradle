@@ -1,8 +1,18 @@
 buildscript {
+
+    def kotlin_version = "1.6.21"
+    def hilt_android_gradle_version = '2.40.1'
+
     repositories {
         google()
         mavenCentral()
     }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_android_gradle_version"
+    }
+
 }
 
 plugins {
