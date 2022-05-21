@@ -13,7 +13,7 @@
             android:layout_marginBottom="@dimen/nested_scrollview_margin_bottom"
             android:fillViewport="true"
             android:overScrollMode="never"
-            tools:context=".view.CatsGeneratorActivity">
+            tools:context=".view.CatGeneratorActivity">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -47,6 +47,7 @@
                 </androidx.appcompat.widget.Toolbar>
 
                 <ImageView
+                    android:id="@+id/iViewCatPicture"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/image_cat_height"
                     android:layout_marginVertical="@dimen/image_cat_margin_vertical"

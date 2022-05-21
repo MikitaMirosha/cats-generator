@@ -13,5 +13,5 @@ data class CatResponse(
     val tags: List<String>,
 
     @SerializedName("url")
-    val url: String,
+    var url: String
 )
