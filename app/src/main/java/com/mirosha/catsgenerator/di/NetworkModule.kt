@@ -2,7 +2,7 @@ package com.mirosha.catsgenerator.di
 
 import com.google.gson.GsonBuilder
 import com.mirosha.catsgenerator.data.remote.CatService
-import com.mirosha.catsgenerator.utils.UrlConstants.BASE_URL
+import com.mirosha.catsgenerator.utils.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
