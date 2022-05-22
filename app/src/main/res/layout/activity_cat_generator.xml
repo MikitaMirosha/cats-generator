@@ -33,7 +33,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:contentDescription="@string/content_description_back_arrow"
-                            android:src="@drawable/ic_back_arrow" />
+                            android:src="@drawable/ic_light_back_arrow" />
 
                         <TextView
                             style="@style/ToolbarTextStyle"
@@ -199,17 +199,35 @@
 
         </androidx.core.widget.NestedScrollView>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnGiveMeCat"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/button_height"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginHorizontal="@dimen/activity_margin_horizontal"
-            android:layout_marginBottom="@dimen/button_margin_bottom"
-            android:insetTop="@dimen/button_inset"
-            android:insetBottom="@dimen/button_inset"
-            android:text="@string/button_text"
-            android:textSize="@dimen/button_text_size" />
+            android:layout_marginBottom="@dimen/button_margin_bottom">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGiveMeCat"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:enabled="false"
+                android:insetTop="@dimen/button_inset"
+                android:insetBottom="@dimen/button_inset"
+                android:text="@string/button_text"
+                android:textSize="@dimen/button_text_size"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/pbLoadingButton"
+                android:layout_width="@dimen/progress_bar_size"
+                android:layout_height="@dimen/progress_bar_size"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/progress_bar_margin_start"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/gray"
+                android:indeterminateTintMode="src_atop" />
+
+        </FrameLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
