@@ -23,9 +23,18 @@ class CatGeneratorViewModel
     private val _response: MutableLiveData<NetworkStatus<CatResponse>> = MutableLiveData()
     val response: LiveData<NetworkStatus<CatResponse>> = _response
 
+    private val _tags: MutableLiveData<NetworkStatus<MutableList<String>>> = MutableLiveData()
+    val tags: LiveData<NetworkStatus<MutableList<String>>> = _tags
+
     fun getRandomCat() = viewModelScope.launch {
         catRepository.getRandomCat().collect { values ->
             _response.value = values
+        }
+    }
+
+    fun getAllTags() = viewModelScope.launch {
+        catRepository.getAllTags().collect { values ->
+            _tags.value = values
         }
     }
 }
