@@ -48,7 +48,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="@dimen/image_cat_height"
                     android:layout_marginHorizontal="@dimen/activity_margin_horizontal"
                     app:cardCornerRadius="@dimen/card_view_corner_radius"
                     app:cardElevation="@dimen/card_view_elevation">
@@ -56,7 +56,7 @@
                     <ImageView
                         android:id="@+id/ivCatImage"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/image_cat_height"
+                        android:layout_height="match_parent"
                         android:contentDescription="@string/content_description_cat_image"
                         android:scaleType="centerCrop" />
 
@@ -77,6 +77,7 @@
                     android:layout_marginBottom="@dimen/text_input_layout_margin_bottom">
 
                     <AutoCompleteTextView
+                        android:id="@+id/tvChooseTag"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/hint_tag"
@@ -94,6 +95,7 @@
                     android:layout_marginBottom="@dimen/text_input_layout_margin_bottom">
 
                     <AutoCompleteTextView
+                        android:id="@+id/tvChooseFilter"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/hint_filter"
@@ -109,8 +111,10 @@
                     android:orientation="horizontal">
 
                     <CheckBox
+                        android:id="@+id/cbAddText"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/purple_500" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -122,10 +126,12 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/llExtraSection"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/hidden_layout_margin_top"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -178,6 +184,7 @@
                         android:layout_marginBottom="@dimen/text_input_layout_margin_bottom">
 
                         <AutoCompleteTextView
+                            android:id="@+id/tvChooseColor"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/hint_color"

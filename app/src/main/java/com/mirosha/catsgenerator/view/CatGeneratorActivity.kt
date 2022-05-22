@@ -26,7 +26,8 @@ class CatGeneratorActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         fetchCatData()
-        binding.btnGiveMeCat.setOnClickListener { fetchCatResponse() }
+        setCheckboxListener(binding)
+        setButtonListener(binding)
     }
 
     private fun fetchCatData() {
@@ -58,6 +59,21 @@ class CatGeneratorActivity : AppCompatActivity() {
                     Log.i(CatGeneratorActivity::class.java.simpleName, ERROR_STATUS)
                 }
             }
+        }
+    }
+
+    private fun setCheckboxListener(binding: ActivityCatGeneratorBinding) {
+        binding.cbAddText.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked)
+                binding.llExtraSection.visibility = View.VISIBLE
+            else
+                binding.llExtraSection.visibility = View.GONE
+        }
+    }
+
+    private fun setButtonListener(binding: ActivityCatGeneratorBinding) {
+        binding.btnGiveMeCat.setOnClickListener {
+            fetchCatResponse()
         }
     }
 
