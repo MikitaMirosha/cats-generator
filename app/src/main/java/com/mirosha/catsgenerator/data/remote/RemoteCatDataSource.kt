@@ -6,4 +6,6 @@ class RemoteCatDataSource
 @Inject constructor(private val catService: CatService) {
 
     suspend fun getRandomCat() = catService.getRandomCat()
+
+    suspend fun getAllTags() = catService.getAllTags()
 }

@@ -10,7 +10,7 @@ data class CatResponse(
     val createdAt: String,
 
     @SerializedName("tags")
-    val tags: List<String>,
+    var tags: List<String>,
 
     @SerializedName("url")
     var url: String

@@ -22,4 +22,10 @@ class CatRepository
             emit(makeApiCall { remoteCatDataSource.getRandomCat() })
         }.flowOn(Dispatchers.IO)
     }
+
+    suspend fun getAllTags(): Flow<NetworkStatus<MutableList<String>>> {
+        return flow {
+            emit(makeApiCall { remoteCatDataSource.getAllTags() })
+        }.flowOn(Dispatchers.IO)
+    }
 }
