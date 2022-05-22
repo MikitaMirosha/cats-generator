@@ -1,14 +1,16 @@
 package com.mirosha.catsgenerator.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import coil.load
-import coil.transform.RoundedCornersTransformation
-import com.mirosha.catsgenerator.databinding.ActivityTestCatGeneratorBinding
+import com.bumptech.glide.Glide
+import com.mirosha.catsgenerator.databinding.ActivityCatGeneratorBinding
+import com.mirosha.catsgenerator.model.CatResponse
 import com.mirosha.catsgenerator.utils.NetworkStatus
+import com.mirosha.catsgenerator.utils.UrlConstants.BASE_URL
 import com.mirosha.catsgenerator.viewmodel.CatGeneratorViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,15 +18,15 @@ import dagger.hilt.android.AndroidEntryPoint
 class CatGeneratorActivity : AppCompatActivity() {
 
     private val viewModel by viewModels<CatGeneratorViewModel>()
-    private lateinit var binding: ActivityTestCatGeneratorBinding
+    private lateinit var binding: ActivityCatGeneratorBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityTestCatGeneratorBinding.inflate(layoutInflater)
+        binding = ActivityCatGeneratorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         fetchCatData()
-        binding.iViewRefresh.setOnClickListener { fetchCatResponse() }
+        binding.btnGiveMeCat.setOnClickListener { fetchCatResponse() }
     }
 
     private fun fetchCatData() {
@@ -33,25 +35,27 @@ class CatGeneratorActivity : AppCompatActivity() {
         viewModel.response.observe(this) { response ->
             when (response) {
                 is NetworkStatus.Loading -> {
-                    binding.pBarCat.visibility = View.VISIBLE
+                    binding.pbLoadingImage.visibility = View.VISIBLE
+
+                    Log.i(CatGeneratorActivity::class.java.simpleName, LOADING_STATUS)
                 }
 
                 is NetworkStatus.Success -> {
-                    response.data?.let {
-                        binding.iViewCat.load(response.data.url) {
-                            transformations(RoundedCornersTransformation(ROUNDED_CORNER_RADIUS))
-                        }
-                    }
-                    binding.pBarCat.visibility = View.GONE
+                    loadCatImage(binding, response)
+                    binding.pbLoadingImage.visibility = View.GONE
+
+                    Log.i(CatGeneratorActivity::class.java.simpleName, SUCCESS_STATUS)
                 }
 
                 is NetworkStatus.Error -> {
-                    binding.pBarCat.visibility = View.GONE
+                    binding.pbLoadingImage.visibility = View.GONE
                     Toast.makeText(
                         this,
                         response.message,
                         Toast.LENGTH_SHORT
                     ).show()
+
+                    Log.i(CatGeneratorActivity::class.java.simpleName, ERROR_STATUS)
                 }
             }
         }
@@ -59,10 +63,22 @@ class CatGeneratorActivity : AppCompatActivity() {
 
     private fun fetchCatResponse() {
         viewModel.getRandomCat()
-        binding.pBarCat.visibility = View.VISIBLE
+        binding.pbLoadingImage.visibility = View.VISIBLE
+    }
+
+    private fun loadCatImage(
+        binding: ActivityCatGeneratorBinding,
+        response: NetworkStatus<CatResponse>
+    ) {
+        Glide.with(binding.root.context)
+            .load(BASE_URL + response.data?.url)
+            .centerCrop()
+            .into(binding.ivCatImage)
     }
 
     private companion object {
-        const val ROUNDED_CORNER_RADIUS = 16f
+        const val LOADING_STATUS = "Network Status: LOADING"
+        const val SUCCESS_STATUS = "Network Status: SUCCESS"
+        const val ERROR_STATUS = "Network Status: ERROR"
     }
 }

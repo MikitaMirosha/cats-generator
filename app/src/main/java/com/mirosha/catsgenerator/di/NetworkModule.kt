@@ -25,6 +25,7 @@ object NetworkModule {
 
         return OkHttpClient.Builder()
             .addInterceptor(interceptor)
+            .retryOnConnectionFailure(retryOnConnectionFailure = true)
             .build()
     }
 
