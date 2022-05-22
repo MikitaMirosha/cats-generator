@@ -46,13 +46,27 @@
 
                 </androidx.appcompat.widget.Toolbar>
 
-                <ImageView
-                    android:id="@+id/iViewCatPicture"
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/image_cat_height"
-                    android:layout_marginVertical="@dimen/image_cat_margin_vertical"
-                    android:contentDescription="@string/content_description_cat_image"
-                    android:src="@drawable/img_cat" />
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/activity_margin_horizontal"
+                    app:cardCornerRadius="@dimen/card_view_corner_radius"
+                    app:cardElevation="@dimen/card_view_elevation">
+
+                    <ImageView
+                        android:id="@+id/ivCatImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/image_cat_height"
+                        android:contentDescription="@string/content_description_cat_image"
+                        android:scaleType="centerCrop" />
+
+                    <ProgressBar
+                        android:id="@+id/pbLoadingImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
+                </androidx.cardview.widget.CardView>
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -178,26 +192,17 @@
 
         </androidx.core.widget.NestedScrollView>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGiveMeCat"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/button_height"
             android:layout_gravity="bottom"
-            android:layout_marginHorizontal="@dimen/activity_margin_horizontal">
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:text="@string/button_text"
-                android:textSize="@dimen/button_text_size"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginHorizontal="@dimen/activity_margin_horizontal"
+            android:layout_marginBottom="@dimen/button_margin_bottom"
+            android:insetTop="@dimen/button_inset"
+            android:insetBottom="@dimen/button_inset"
+            android:text="@string/button_text"
+            android:textSize="@dimen/button_text_size" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
