@@ -64,7 +64,10 @@
                         android:id="@+id/pbLoadingImage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:indeterminateTint="@color/gray"
+                        android:indeterminateTintMode="src_atop" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -131,7 +134,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/hidden_layout_margin_top"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -141,6 +145,7 @@
                         android:hint="@string/hint_opis">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCatDescription"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
@@ -151,25 +156,28 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/activity_margin_horizontal"
                         android:layout_marginTop="@dimen/slider_margin_top"
-                        android:gravity="center"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="start|center"
                             android:text="@string/slider_min_value"
                             android:textSize="@dimen/slider_text_size" />
 
-                        <androidx.appcompat.widget.AppCompatSeekBar
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/sliderTextSize"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:max="60"
-                            android:thumb="@drawable/ic_slider" />
+                            android:stepSize="1"
+                            android:valueFrom="0"
+                            android:valueTo="60"
+                            app:tickVisible="false" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="end|center"
                             android:text="@string/slider_max_value"
                             android:textSize="@dimen/slider_text_size" />
 
@@ -200,20 +208,55 @@
         </androidx.core.widget.NestedScrollView>
 
         <FrameLayout
+            android:id="@+id/btnGiveMeCatError"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginHorizontal="@dimen/activity_margin_horizontal"
-            android:layout_marginBottom="@dimen/button_margin_bottom">
+            android:layout_marginBottom="@dimen/button_margin_bottom"
+            android:background="@drawable/view_bottom_button_error"
+            android:visibility="gone">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnGiveMeCat"
+            <TextView
+                android:id="@+id/tvConnectionFailed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/button_text_margin_start"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="@dimen/button_line_spacing_extra"
+                android:text="@string/button_text_error"
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_text_size" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btnGiveMeCatDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="@dimen/activity_margin_horizontal"
+            android:layout_marginBottom="@dimen/button_margin_bottom"
+            android:background="@drawable/view_bottom_button_default">
+
+            <FrameLayout
+                android:id="@+id/btnGiveMeCatLoading"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/button_height"
-                android:enabled="false"
-                android:insetTop="@dimen/button_inset"
-                android:insetBottom="@dimen/button_inset"
+                android:layout_height="match_parent"
+                android:background="@drawable/view_bottom_button_loading"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvGiveMeCat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:letterSpacing="0.09"
+                android:lineSpacingExtra="@dimen/button_text_line_spacing_extra"
                 android:text="@string/button_text"
+                android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold" />
 
@@ -225,7 +268,8 @@
                 android:layout_marginStart="@dimen/progress_bar_margin_start"
                 android:indeterminate="true"
                 android:indeterminateTint="@color/gray"
-                android:indeterminateTintMode="src_atop" />
+                android:indeterminateTintMode="src_atop"
+                tools:visibility="visible" />
 
         </FrameLayout>
 
