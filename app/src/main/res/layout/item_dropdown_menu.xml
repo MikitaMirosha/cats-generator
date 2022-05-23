@@ -8,5 +8,6 @@
     android:ellipsize="end"
     android:maxLines="1"
     android:padding="@dimen/item_text_padding"
+    android:textAppearance="?attr/textAppearanceSubtitle1"
     android:textSize="@dimen/item_text_size"
     tools:text="Item" />

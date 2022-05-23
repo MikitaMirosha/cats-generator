@@ -1,16 +1,18 @@
 package com.mirosha.catsgenerator.data.remote
 
 import com.mirosha.catsgenerator.model.CatResponse
-import com.mirosha.catsgenerator.utils.UrlConstants.ALL_TAGS_URL
-import com.mirosha.catsgenerator.utils.UrlConstants.RANDOM_CAT_URL
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface CatService {
 
-    @GET(RANDOM_CAT_URL)
+    @GET("/cat?json=true")
     suspend fun getRandomCat(): Response<CatResponse>
 
-    @GET(ALL_TAGS_URL)
+    @GET("/api/tags")
     suspend fun getAllTags(): Response<MutableList<String>>
+
+    @GET("/cat/{tag}?json=true")
+    suspend fun getRandomCatByTag(@Path("tag") tag: String): Response<CatResponse>
 }

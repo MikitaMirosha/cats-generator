@@ -37,4 +37,10 @@ class CatGeneratorViewModel
             _tags.value = values
         }
     }
+
+    fun getRandomCatByTag(tag: String) = viewModelScope.launch {
+        catRepository.getRandomCatByTag(tag).collect { values ->
+            _response.value = values
+        }
+    }
 }

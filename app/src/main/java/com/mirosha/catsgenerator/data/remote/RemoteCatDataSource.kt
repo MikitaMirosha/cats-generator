@@ -8,4 +8,6 @@ class RemoteCatDataSource
     suspend fun getRandomCat() = catService.getRandomCat()
 
     suspend fun getAllTags() = catService.getAllTags()
+
+    suspend fun getRandomCatByTag(tag: String) = catService.getRandomCatByTag(tag)
 }
