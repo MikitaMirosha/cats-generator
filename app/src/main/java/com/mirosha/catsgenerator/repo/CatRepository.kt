@@ -17,21 +17,43 @@ class CatRepository
     private val remoteCatDataSource: RemoteCatDataSource
 ) : BaseApiResponse() {
 
-    suspend fun getRandomCat(): Flow<NetworkStatus<CatResponse>> {
-        return flow {
-            emit(makeApiCall { remoteCatDataSource.getRandomCat() })
-        }.flowOn(Dispatchers.IO)
-    }
-
     suspend fun getAllTags(): Flow<NetworkStatus<MutableList<String>>> {
         return flow {
             emit(makeApiCall { remoteCatDataSource.getAllTags() })
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun getRandomCatByTag(tag: String): Flow<NetworkStatus<CatResponse>> {
+    suspend fun getRandomCat(): Flow<NetworkStatus<CatResponse>> {
         return flow {
-            emit(makeApiCall { remoteCatDataSource.getRandomCatByTag(tag) })
+            emit(makeApiCall { remoteCatDataSource.getRandomCat() })
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getCatByTag(
+        tag: String?,
+        options: HashMap<String?, String?>?
+    ): Flow<NetworkStatus<CatResponse>> {
+        return flow {
+            emit(makeApiCall { remoteCatDataSource.getCatByTag(tag, options) })
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getCatByText(
+        text: String?,
+        options: HashMap<String?, String?>?
+    ): Flow<NetworkStatus<CatResponse>> {
+        return flow {
+            emit(makeApiCall { remoteCatDataSource.getCatByText(text, options) })
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getCatByTagAndText(
+        tag: String?,
+        text: String?,
+        options: HashMap<String?, String?>?
+    ): Flow<NetworkStatus<CatResponse>> {
+        return flow {
+            emit(makeApiCall { remoteCatDataSource.getCatByTagAndText(tag, text, options) })
         }.flowOn(Dispatchers.IO)
     }
 }
