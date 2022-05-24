@@ -26,20 +26,42 @@ class CatGeneratorViewModel
     private val _tags: MutableLiveData<NetworkStatus<MutableList<String>>> = MutableLiveData()
     val tags: LiveData<NetworkStatus<MutableList<String>>> = _tags
 
-    fun getRandomCat() = viewModelScope.launch {
-        catRepository.getRandomCat().collect { values ->
-            _response.value = values
-        }
-    }
-
     fun getAllTags() = viewModelScope.launch {
         catRepository.getAllTags().collect { values ->
             _tags.value = values
         }
     }
 
-    fun getRandomCatByTag(tag: String) = viewModelScope.launch {
-        catRepository.getRandomCatByTag(tag).collect { values ->
+    fun getRandomCat() = viewModelScope.launch {
+        catRepository.getRandomCat().collect { values ->
+            _response.value = values
+        }
+    }
+
+    fun getCatByTag(
+        tag: String?,
+        options: HashMap<String?, String?>?
+    ) = viewModelScope.launch {
+        catRepository.getCatByTag(tag, options).collect { values ->
+            _response.value = values
+        }
+    }
+
+    fun getCatByText(
+        text: String?,
+        options: HashMap<String?, String?>?
+    ) = viewModelScope.launch {
+        catRepository.getCatByText(text, options).collect { values ->
+            _response.value = values
+        }
+    }
+
+    fun getCatByTagAndText(
+        tag: String?,
+        text: String?,
+        options: HashMap<String?, String?>?
+    ) = viewModelScope.launch {
+        catRepository.getCatByTagAndText(tag, text, options).collect { values ->
             _response.value = values
         }
     }
