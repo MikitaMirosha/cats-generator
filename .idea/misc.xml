@@ -3,16 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-night/ic_back_arrow.xml" value="0.1335" />
+        <entry key="app/src/main/res/drawable-night/view_bottom_button_error.xml" value="0.125" />
+        <entry key="app/src/main/res/drawable-night/view_bottom_button_loading.xml" value="0.134" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.162" />
         <entry key="app/src/main/res/drawable/ic_alert_cirlcle.xml" value="0.1305" />
         <entry key="app/src/main/res/drawable/ic_back_arrow.xml" value="0.1605" />
+        <entry key="app/src/main/res/drawable/ic_back_arrow_dark_test.xml" value="0.134" />
+        <entry key="app/src/main/res/drawable/ic_cat_icon.xml" value="0.14" />
         <entry key="app/src/main/res/drawable/ic_dark_back_arrow.xml" value="0.162" />
         <entry key="app/src/main/res/drawable/ic_hourglass.xml" value="0.1305" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.14" />
+        <entry key="app/src/main/res/drawable/ic_light_back_arrow.xml" value="0.14" />
         <entry key="app/src/main/res/drawable/ic_refresh.xml" value="0.1305" />
         <entry key="app/src/main/res/drawable/ic_slider.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/view_bottom_border.xml" value="0.1365" />
         <entry key="app/src/main/res/drawable/view_bottom_button.xml" value="0.158" />
         <entry key="app/src/main/res/drawable/view_bottom_button_default.xml" value="0.158" />
-        <entry key="app/src/main/res/layout/activity_cat_generator.xml" value="0.19432309708505308" />
+        <entry key="app/src/main/res/drawable/view_bottom_button_error.xml" value="0.14" />
+        <entry key="app/src/main/res/drawable/view_bottom_button_loading.xml" value="0.1345" />
+        <entry key="app/src/main/res/drawable/view_bottom_loading_button.xml" value="0.121" />
+        <entry key="app/src/main/res/layout/activity_cat_generator.xml" value="0.252069091796875" />
         <entry key="app/src/main/res/layout/activity_cats_generator.xml" value="0.24198490546001655" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12604166666666666" />
         <entry key="app/src/main/res/layout/activity_test_cat_generator.xml" value="0.20923913043478262" />
@@ -20,6 +31,7 @@
         <entry key="app/src/main/res/layout/item_dropdown_menu.xml" value="0.20923913043478262" />
         <entry key="app/src/main/res/layout/test_layout.xml" value="0.223731884057971" />
         <entry key="app/src/main/res/layout/view_bottom_border.xml" value="0.21784420289855072" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14" />
       </map>
     </option>
   </component>

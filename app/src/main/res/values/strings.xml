@@ -18,6 +18,28 @@
     <string name="slider_min_value">0</string>
     <string name="slider_max_value">60</string>
 
-    <string name="button_text">Daj mi kota</string>
+    <string name="button_text">DAJ MI KOTA</string>
+    <string name="button_text_error">Błąd połączenia</string>
+
+    <string-array name="cat_colors">
+        <item>black</item>
+        <item>white</item>
+        <item>gray</item>
+        <item>red</item>
+        <item>green</item>
+        <item>blue</item>
+        <item>yellow</item>
+        <item>orange</item>
+        <item>brown</item>
+    </string-array>
+
+    <string-array name="cat_filters">
+        <item>blur</item>
+        <item>mono</item>
+        <item>sepia</item>
+        <item>negative</item>
+        <item>paint</item>
+        <item>pixel</item>
+    </string-array>
 
 </resources>
