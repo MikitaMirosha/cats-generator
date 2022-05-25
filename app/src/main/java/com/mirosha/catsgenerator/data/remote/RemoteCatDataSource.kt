@@ -9,19 +9,9 @@ class RemoteCatDataSource
 
     suspend fun getRandomCat() = catService.getRandomCat()
 
-    suspend fun getCatByTag(
-        tag: String?,
-        options: HashMap<String?, String?>?
-    ) = catService.getCatByTag(tag, options)
-
-    suspend fun getCatByText(
-        text: String?,
-        options: HashMap<String?, String?>?
-    ) = catService.getCatByText(text, options)
-
-    suspend fun getCatByTagAndText(
+    suspend fun getCatByOptions(
         tag: String?,
         text: String?,
         options: HashMap<String?, String?>?
-    ) = catService.getCatByTagAndText(tag, text, options)
+    ) = catService.getCatByOptions(tag, text, options)
 }

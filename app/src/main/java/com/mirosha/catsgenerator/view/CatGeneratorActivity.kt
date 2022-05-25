@@ -123,7 +123,7 @@ class CatGeneratorActivity : AppCompatActivity() {
                     )
                 } else {
                     showOnProgressViews()
-                    fetchCatResponse()
+                    fetchCatByOptions()
                 }
             }
         }
@@ -178,16 +178,11 @@ class CatGeneratorActivity : AppCompatActivity() {
         )
     }
 
-    // TODO: fix it
-    private fun fetchCatResponse() {
-        if (tagItem?.isNotEmpty() == true && textItem?.isNotEmpty() == false)
-            viewModel.getCatByTag(tagItem, optionItems)
-
-        if (textItem?.isNotEmpty() == true && tagItem?.isNotEmpty() == false)
-            viewModel.getCatByText(textItem, optionItems)
-
-        if (tagItem?.isNotEmpty() == true && textItem?.isNotEmpty() == true)
-            viewModel.getCatByTagAndText(tagItem, textItem, optionItems)
+    private fun fetchCatByOptions() {
+        if (textItem?.isEmpty() == true)
+            viewModel.getCatByOptions(tagItem, DEFAULT_TEXT_ITEM_VALUE, optionItems)
+        else
+            viewModel.getCatByOptions(tagItem, textItem, optionItems)
     }
 
     private fun loadCatImage(
@@ -236,7 +231,7 @@ class CatGeneratorActivity : AppCompatActivity() {
         const val ERROR_DELAY = 3000L
         const val DEFAULT_SLIDER_VALUE = 0F
         const val DEFAULT_TAG_ITEM_VALUE = ""
-        const val DEFAULT_TEXT_ITEM_VALUE = ""
+        const val DEFAULT_TEXT_ITEM_VALUE = " "
 
         const val FILTER_KEY = "filter"
         const val SIZE_KEY = "size"

@@ -38,30 +38,12 @@ class CatGeneratorViewModel
         }
     }
 
-    fun getCatByTag(
-        tag: String?,
-        options: HashMap<String?, String?>?
-    ) = viewModelScope.launch {
-        catRepository.getCatByTag(tag, options).collect { values ->
-            _response.value = values
-        }
-    }
-
-    fun getCatByText(
-        text: String?,
-        options: HashMap<String?, String?>?
-    ) = viewModelScope.launch {
-        catRepository.getCatByText(text, options).collect { values ->
-            _response.value = values
-        }
-    }
-
-    fun getCatByTagAndText(
+    fun getCatByOptions(
         tag: String?,
         text: String?,
         options: HashMap<String?, String?>?
     ) = viewModelScope.launch {
-        catRepository.getCatByTagAndText(tag, text, options).collect { values ->
+        catRepository.getCatByOptions(tag, text, options).collect { values ->
             _response.value = values
         }
     }

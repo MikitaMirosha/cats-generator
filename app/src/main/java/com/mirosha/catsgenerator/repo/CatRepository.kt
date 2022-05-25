@@ -29,31 +29,13 @@ class CatRepository
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun getCatByTag(
-        tag: String?,
-        options: HashMap<String?, String?>?
-    ): Flow<NetworkStatus<CatResponse>> {
-        return flow {
-            emit(makeApiCall { remoteCatDataSource.getCatByTag(tag, options) })
-        }.flowOn(Dispatchers.IO)
-    }
-
-    suspend fun getCatByText(
-        text: String?,
-        options: HashMap<String?, String?>?
-    ): Flow<NetworkStatus<CatResponse>> {
-        return flow {
-            emit(makeApiCall { remoteCatDataSource.getCatByText(text, options) })
-        }.flowOn(Dispatchers.IO)
-    }
-
-    suspend fun getCatByTagAndText(
+    suspend fun getCatByOptions(
         tag: String?,
         text: String?,
         options: HashMap<String?, String?>?
     ): Flow<NetworkStatus<CatResponse>> {
         return flow {
-            emit(makeApiCall { remoteCatDataSource.getCatByTagAndText(tag, text, options) })
+            emit(makeApiCall { remoteCatDataSource.getCatByOptions(tag, text, options) })
         }.flowOn(Dispatchers.IO)
     }
 }
