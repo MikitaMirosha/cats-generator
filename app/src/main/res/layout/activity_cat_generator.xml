@@ -185,7 +185,7 @@
                             app:thumbColor="@color/purple_500"
                             app:tickVisible="false"
                             app:trackColorActive="@color/purple_500"
-                            app:trackColorInactive="@color/purple_900"
+                            app:trackColorInactive="@color/purple_200"
                             tools:value="20" />
 
                         <TextView
