@@ -13,11 +13,8 @@ import com.bumptech.glide.Glide
 import com.mirosha.catsgenerator.R
 import com.mirosha.catsgenerator.databinding.ActivityCatGeneratorBinding
 import com.mirosha.catsgenerator.model.CatResponse
+import com.mirosha.catsgenerator.utils.*
 import com.mirosha.catsgenerator.utils.Constants.BASE_URL
-import com.mirosha.catsgenerator.utils.NetworkStatus
-import com.mirosha.catsgenerator.utils.clearText
-import com.mirosha.catsgenerator.utils.hideView
-import com.mirosha.catsgenerator.utils.showView
 import com.mirosha.catsgenerator.viewmodel.CatGeneratorViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
@@ -43,9 +40,10 @@ class CatGeneratorActivity : AppCompatActivity() {
         fetchRandomCat()
         fetchCatData()
 
-        showOnProgressViews()
         setListeners(binding)
         setAdapters()
+        showOnProgressViews()
+        showOnThemeChangedViews(this)
     }
 
     private fun fetchCatData() {
@@ -84,6 +82,20 @@ class CatGeneratorActivity : AppCompatActivity() {
         setTagAdapter()
         setFilterAdapter()
         setColorAdapter()
+    }
+
+    private fun showOnProgressViews() {
+        binding.pbLoadingImage.showView()
+        binding.pbLoadingButton.showView()
+        binding.btnGiveMeCatDefault
+            .setBackgroundResource(R.drawable.view_bottom_button_loading)
+    }
+
+    private fun showOnThemeChangedViews(context: Context) {
+        if (context.isDarkThemeOn())
+            binding.ivBackNavigation.setBackgroundResource(R.drawable.ic_back_arrow_light)
+        else
+            binding.ivBackNavigation.setBackgroundResource(R.drawable.ic_back_arrow_dark)
     }
 
     private fun setCheckboxListener(binding: ActivityCatGeneratorBinding) {
@@ -201,13 +213,6 @@ class CatGeneratorActivity : AppCompatActivity() {
             .load(BASE_URL + response.data?.url)
             .centerCrop()
             .into(binding.ivCatImage)
-    }
-
-    private fun showOnProgressViews() {
-        binding.pbLoadingImage.showView()
-        binding.pbLoadingButton.showView()
-        binding.btnGiveMeCatDefault
-            .setBackgroundResource(R.drawable.view_bottom_button_loading)
     }
 
     private fun showOnResultViews() {
