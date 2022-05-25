@@ -27,7 +27,7 @@
 
     <dimen name="hidden_layout_margin_top">24dp</dimen>
 
-    <dimen name="slider_margin_top">20dp</dimen>
+    <dimen name="slider_margin_top">48dp</dimen>
     <dimen name="slider_margin_start">8dp</dimen>
     <dimen name="slider_margin_end">16dp</dimen>
     <dimen name="slider_text_size">16sp</dimen>
