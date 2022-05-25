@@ -21,6 +21,8 @@
     <string name="button_text">DAJ MI KOTA</string>
     <string name="button_text_error">Błąd połączenia</string>
 
+    <string name="empty_tag_item_error">Proszę wybrać tag</string>
+
     <string-array name="cat_colors">
         <item>black</item>
         <item>white</item>

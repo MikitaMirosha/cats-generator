@@ -1,8 +1,10 @@
 package com.mirosha.catsgenerator.view
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
@@ -112,9 +114,18 @@ class CatGeneratorActivity : AppCompatActivity() {
     }
 
     private fun setButtonListener(binding: ActivityCatGeneratorBinding) {
-        binding.btnGiveMeCatDefault.setOnClickListener {
-            showOnProgressViews()
-            fetchCatResponse()
+        binding.apply {
+            btnGiveMeCatDefault.setOnClickListener {
+                if (tvChooseTag.text.isEmpty()) {
+                    showErrorToast(
+                        this@CatGeneratorActivity,
+                        resources.getString(R.string.empty_tag_item_error)
+                    )
+                } else {
+                    showOnProgressViews()
+                    fetchCatResponse()
+                }
+            }
         }
     }
 
@@ -213,6 +224,9 @@ class CatGeneratorActivity : AppCompatActivity() {
             binding.btnGiveMeCatDefault.showView()
         }
     }
+
+    private fun showErrorToast(context: Context, toast: String) =
+        Toast.makeText(context, toast, Toast.LENGTH_LONG).show()
 
     private companion object {
         const val LOGGER_TAG = "CatGeneratorActivity"
