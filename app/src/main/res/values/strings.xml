@@ -22,6 +22,7 @@
     <string name="button_text_error">Błąd połączenia</string>
 
     <string name="empty_tag_item_error">Proszę wybrać tag</string>
+    <string name="no_internet_connection_error">Brak połączenia z Internetem</string>
 
     <string-array name="cat_colors">
         <item>black</item>

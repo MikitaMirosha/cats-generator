@@ -1,6 +1,9 @@
 package com.mirosha.catsgenerator.viewmodel
 
 import android.app.Application
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -45,6 +48,18 @@ class CatGeneratorViewModel
     ) = viewModelScope.launch {
         catRepository.getCatByOptions(tag, text, options).collect { values ->
             _response.value = values
+        }
+    }
+
+    fun hasNetworkConnection(context: Context): Boolean {
+        with(context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager) {
+            val networkCapabilities = getNetworkCapabilities(activeNetwork)
+            val netCapabilityValidated = NetworkCapabilities.NET_CAPABILITY_VALIDATED
+            return when {
+                networkCapabilities == null -> false
+                networkCapabilities.hasCapability(netCapabilityValidated) -> true
+                else -> false
+            }
         }
     }
 }

@@ -116,6 +116,14 @@ class CatGeneratorActivity : AppCompatActivity() {
     private fun setButtonListener(binding: ActivityCatGeneratorBinding) {
         binding.apply {
             btnGiveMeCatDefault.setOnClickListener {
+                if (!viewModel.hasNetworkConnection(this@CatGeneratorActivity)) {
+                    showErrorToast(
+                        this@CatGeneratorActivity,
+                        resources.getString(R.string.no_internet_connection_error)
+                    )
+                    return@setOnClickListener
+                }
+
                 if (tvChooseTag.text.isEmpty()) {
                     showErrorToast(
                         this@CatGeneratorActivity,
